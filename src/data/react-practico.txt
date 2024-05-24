@@ -1,0 +1,102 @@
+2. Programación
+funcional
+¿Por qué un capítulo sobre programación funcional? Los imperios de lenguajes y
+los reinos de frameworks surgen y caen, pero solo una cosa permanece: debemos
+mantener código. Esa es la parte que sin duda más tiempo requiere el proceso de
+desarrollo de software. Y es precisamente por eso por lo que nos debería preocupar
+crear un buen código, limpio, testeado y ante todo fácil de mantener. Y también
+porque React ha ido evolucionando al estilo funcional.
+La programación funcional, en adelante PF, es uno de esos grandes temas como
+la inteligencia artificial, Internet, la ingeniería de software... que aparecen y desaparecen, pero que vuelven a estar de moda. Al margen de modas, cualquier crafter
+debería acercarse a esta área porque le puede proveer de herramientas muy útiles
+para su arsenal, incluso aunque no se abrace completamente. Como cuando Thorin
+Escudo de Roble (un orgulloso rey enano) encontró una espada élfica: no renunció
+a ella porque apreció su valor.
+En este capítulo, vamos a presentar algunos conceptos de la PF y comprobará cómo
+encuentra conocimiento útil. Esto no se trata de presentar el último framework de
+moda o el último formato de configuración: se trata de técnicas de programación
+que le ayudarán a escribir mejor código en el día a día. Estos son temas que resisten
+el paso del tiempo y siguen siendo válidos y es por eso que merece la pena echarles
+un vistazo.
+Nada de monads, functors, nada de mates abstractas. Solo código simple. Este
+capítulo presenta las piezas básicas de la programación funcional aplicada con
+JavaScript.
+
+72 CAPÍTULO 2
+Funciones puras
+Son funciones que para una entrada dada siempre devuelven el mismo resultado, y
+no pueden tener efectos secundarios o side‑effects. Un ejemplo obvio:
+function add(a, b) {
+return a + b;
+}
+Beneficios de las funciones puras
+Debemos procurar que todas nuestras funciones sean puras porque:
+ Son fáciles de testear.
+ Facilitan la composición con otras funciones.
+ Son cacheables o memoizables.
+ Evita side‑effects.
+ Conducen a un código más limpio.
+Y, por eso, ¡debemos aspirar a que todos los componentes React sean funciones
+puras! A continuación, desgranamos estas y otras propiedades.
+Fácil de testear
+La función solo tiene una entrada y su salida: no tiene que preocuparse de nada más.
+Los efectos secundarios hacen que el código sea más difícil de probar y mantener.
+¿Por qué? Porque, para probar algo, probablemente necesite definir varios mocks o
+preparar un montón de objetos auxiliares. Sin embargo, una función que no depende
+de nadie es lo más simple para comprobar en un test.
+Fácil de componer con otras
+Como veremos más adelante, las funciones puras permiten la composición,
+especialmente cuando las funciones tienen un único parámetro. Es una técnica de
+reutilización de código.
+Cacheable/Memoizable
+Cuando una función es pura le da la garantía de que siempre devolverá lo mismo
+para un parámetro dado. Así, si ejecutamos la función una vez, podemos guardar
+o almacenar en una caché el resultado por si la volvemos a llamar con el mismo
+
+84 CAPÍTULO 3
+Desarrollo online
+Si no quiere ni puede instalar un entorno en su propio equipo, es más, si ni siquiera
+tiene un equipo propio, puede desarrollar aplicaciones React online, a través de
+distintas aplicaciones de desarrollo. Bastará con tener un ordenador que disponga
+de conexión a Internet y obviamente un navegador.
+Codepen
+Codepen, al igual que Jsfiddle, Codebin, Repl.it y otros muchos entornos de este
+tipo, nos permite crear pequeñas demos de front‑end, donde, además de unir HTML,
+CSS y JavaScript puro, podemos añadir cualquier librería adicional que queramos y
+disponer de escenarios específicos para los frameworks más conocidos.
+Además de las librerías, también se pueden aplicar transpilaciones o transformaciones como Babel, que es utilizada por React para que su sintaxis JSX y su ES6
+pueda ejecutarse de forma segura en cualquier navegador.
+Este es, por ejemplo, un entorno de React que puede utilizarse como plantilla para
+crear otros escenarios:
+Para configurar un entorno como este, podemos ver la configuración de JavaScript,
+como se ve en la figura 3.2. En este caso, se debe aplicar Babel para permitir opciones
+avanzadas de JavaScript, además las dos librerías react y react-dom.
+
+130 CAPÍTULO 4
+App.js
+Este es el componente App.js que a su vez tiene subcomponentes y al que le
+aplicamos estilos en un fichero llamada App.css. Antes del return que genera el
+contenido existen unas líneas que se encargan de varias cosas:
+ useState: Se utiliza para gestionar valores del estado (gender, country y
+people), es decir, valores que cambian según lo que haga la aplicación o la
+interacción del usuario.
+ findPeople: Una función que se encarga de llamar a una API (un recurso de
+la red) y guarda la respuesta en el estado.
+ useEffect: Una función de React que se invoca automáticamente cuando
+se carga el componente.
+Profundizaremos en el estado, useEffect y a las llamadas a la red en los próximos
+capítulos. Ahora vamos a centrarnos en la presentación y en ver cómo queda el
+componente.
+Existen otras maneras de acceder a los campos de un formulario. Si solamente hay
+un campo, se puede acceder a través del evento de cambio, como en este caso.
+Campos de selección múltiple
+Hay campos de formulario que precisan un tratamiento más especial, como son las
+listas de selección múltiple y los checkbox. Estos últimos se pueden gestionar por
+separado, pero ahora se mostrarán agrupados y sus valores metidos en un único
+array.
+Para las listas de selección múltiple, también se utilizará un array. En su caso, lo que
+se hace es crear un evento en el elemento <select>, para que, cada vez que haya
+un cambio, se actualice el array que contiene todos los elementos seleccionados.
+Con los checkbox, si se agrupan, el tratamiento es más pesado, ya que hay que meter/
+sacar los seleccionados del array en el que se agrupan los valores. La ventaja es que,
+precisamente, se consigue guardar un conjunto de valores agrupados.

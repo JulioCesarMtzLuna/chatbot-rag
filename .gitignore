@@ -1,0 +1,18 @@
+# Archivos generados por Python
+*.pyc
+__pycache__
+
+# Directorios de entorno virtual
+venv/
+env/
+*.venv
+
+# Archivos de configuración local
+config.ini
+.env
+
+# Archivos de registro
+logs/
+
+# Dependencias de Python
+*.egg-info
